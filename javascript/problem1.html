@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .point{
+            margin-left: 20px;
+        }
+        .num{
+            margin-left: 20px;
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prime Numbers Finder!</h1>
+    <p>Write the web app to prompt accepting for a positive integer number</p>
+    <ul></ul>
+    <li class="point">If the enterde text is not positive integer number, then the web app will keep asking for a number until the valid positive integer is entered</li>
+    <li class="point">If the entered text is a positive integer, then the web app will add into a list of prime numbers</li>
+    <p>Hint:</p>
+    <li class="num">1. You may want to use loop with label</li>
+    <li class="num">2. You may want to use array with push funtion</li>
+    <script>
+        let number
+        while(true) {
+            let userInput = prompt("Enter a positive integer");
+            number = parseInt(userInput, 10); 
+
+            if (isNaN(number) || number <= 0) {
+                alert("Please enter a positive integer");
+            } else {
+                break;
+            }
+        }
+        showPrimes(number);
+        function showPrimes(n){
+            let primes = [];
+            for (let i = 2; i <= n; i++){
+                if(isPrime(i)){
+                    primes.push(i)
+                }
+            }
+            alert("For n = " + number + " prime numbers are " + primes.join(','));
+                }
+        function isPrime(n){
+            if (n <= 1) return false;
+            for(let i=2; i <= Math.sqrt(n); i++){
+                if(n % i == 0) return false;
+            }
+            return true;
+        }
+       
+    </script>
+</body>
+</html>
